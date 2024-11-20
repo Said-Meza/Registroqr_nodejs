@@ -1,0 +1,90 @@
+<%- include('Header.ejs') %> 
+
+<% if (error) { %>
+     <h5><%= error.details.map(err=>err.message) %></h5> 
+<% } %>
+
+<main class="hero">
+  <form class="form container" method="post" action="/registro">
+    <h3 class="title">Registro</h3>
+
+    <div class="form_input">
+      <label class="label" for="name">Name:</label>
+      <input type="text" autocomplete="true" name="name" id="name" placeholder="ej. Rosa Meltrozo " />
+    </div>
+
+    <div class="form_input">
+      <label class="label" for="tel">Telefono:</label>
+      <input type="text" autocomplete="true" name="tel" id="tel" placeholder="Ej.7829999" />
+    </div>
+
+    <div class="form_input">
+      <label class="label" for="correo">correo:</label>
+      <input type="text" name="correo" id="correo" placeholder="MARIA@GMAIL.COM" />
+    </div>
+
+    <div class="form_input">
+      <label class="label" for="carrera">Carrera:</label>
+      <select name="carrera" id="carrera">
+        <option value="0">[Escoje una Opcion]</option>
+        <option value="SISTEMAS COMPUTACIONALES">SISTEMAS COMPUTACIONALES</option>
+        <option value="NANOTECNOLOGIA">NANOTECNOLOGIA</option>
+        <option value="ELECTRICIDAD">ELECTRICIDAD</option>
+        <option value="MECATRONICA">MECATRONICA</option>
+        <option value="ELECTROMECANICA">ELECTROMECANICA</option>
+        <option value="GEOCIENCIAS">GEOCIENCIAS</option>
+        <option value="CONTADOR PUBLICO">CONTADOR PUBLICO</option>
+        <option value="PETROLERA">PETROLERA</option>
+        <option value="GESTION EMPRESARIAL">GESTION EMPRESARIAL</option>
+        <option value="PETROLERA">PETROLERA</option>
+        <option value="INDUSTRIAL">INDUSTRIAL</option>
+      </select>
+    </div>
+
+    <div class="form_input">
+      <label class="label" for="matricula">Matricula:</label>
+      <input type="text" id="matricula" name="matricula" placeholder="123P2821" />
+    </div>
+
+    <div class="form_input">
+      <label class="label" for="semestre">Grado:</label>
+      <select id="semestre" name="semestre">
+        <option value="">[Escoge un Semestre]</option>
+        <option value="1">1°</option>
+        <option value="2">2°</option>
+        <option value="3">3°</option>
+        <option value="4">4°</option>
+        <option value="5">5°</option>
+        <option value="6">6°</option>
+        <option value="7">7°</option>
+        <option value="8">8°</option>
+        <option value="9">9°</option>
+        <option value="10">10°</option>
+        <option value="11">11°</option>
+        <option value="12">12°</option>
+        <option value="13">13°</option>
+        <option value="14">14°</option>
+        <option value="15">15°</option>
+      </select>
+    </div>
+
+    <div class="btn_">
+      <button class="btn" id="btn_s">Generar Codigo QR</button>
+    </div>
+
+  </form>
+
+
+  <div class="qr container <%= data.active?"active":""; %>"> 
+   
+ <a class="qr__text" download="qr.png" href="<%= data?data.qr:""; %>"> Click para Descargar</a>
+  
+ <figure class="qr__figure">
+      <img class="qr__img"  src="<%= data?data.qr:""; %>" alt="qr" />
+  </figure>
+   
+  </div>
+</main>
+<script type="module" src="./index.js"></script>
+
+<%- include('Footer.ejs') %>

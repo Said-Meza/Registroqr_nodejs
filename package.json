@@ -1,0 +1,21 @@
+{
+  "name": "e25",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.21.1",
+    "joi": "^17.13.3",
+    "mysql2": "^3.11.4",
+    "qrcode": "^1.5.4"
+  }
+}
